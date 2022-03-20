@@ -13,6 +13,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
     userChoice = event.target.id
     userChoiceDisplay.innerHTML = userChoice
     generateComputerChoice()
+    getResult()
 }))
 
 function generateComputerChoice() {
@@ -52,4 +53,5 @@ function getResult() {
     if (computerChoice === 'scissors' && userChoice === 'rock') {
         result = 'you win!'
     }
+    resultDisplay.innerHTML = result
 }
