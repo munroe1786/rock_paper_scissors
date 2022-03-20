@@ -7,6 +7,8 @@ let userChoice
 
 let computerChoice
 
+let result
+
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (event) => {
     userChoice = event.target.id
     userChoiceDisplay.innerHTML = userChoice
@@ -15,6 +17,7 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
 
 function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1// or you can use possibleChoice.length
+    
     if (randomNumber === 1) {
         computerChoice = 'rock'
     }
@@ -25,4 +28,28 @@ function generateComputerChoice() {
         computerChoice = 'paper'
     }
     computerChoiceDisplay.innerHTML = computerChoice
+}
+
+function getResult() {
+    if (computerChoice === userChoice) {
+        result = 'draw!'
+    }
+    if (computerChoice === 'rock' && userChoice === 'paper') {
+        result = 'you win!'
+    }
+    if (computerChoice === 'rock' && userChoice === 'scissors') {
+        result = 'you lose!'
+    }
+    if (computerChoice === 'paper' && userChoice === 'rock') {
+        result = 'you lose!'
+    }
+    if (computerChoice === 'paper' && userChoice === 'scissors') {
+        result = 'you win!'
+    }
+    if (computerChoice === 'scissors' && userChoice === 'paper') {
+        result = 'you lose!'
+    }
+    if (computerChoice === 'scissors' && userChoice === 'rock') {
+        result = 'you win!'
+    }
 }
